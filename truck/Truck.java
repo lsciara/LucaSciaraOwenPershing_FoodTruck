@@ -11,8 +11,8 @@ public class Truck {
     private List<MenuItem> menu;             
     private List<Ingredient> inventory;      
     
-    private boolean isOpen;                   // Operating status
-    private int reputation;                   // Customer satisfaction score
+    // private boolean isOpen;                   
+    // private int reputation;                   
     // private String location;                  
 
     
@@ -23,6 +23,6 @@ public class Truck {
         this.cash = startingCash;
         this.menu = new ArrayList<>();
         this.inventory = new ArrayList<>();
-        this.isOpen = false;
+        // this.isOpen = false;
     }
 }
