@@ -1,7 +1,8 @@
 #Okay so I did not know how to do this with packages so I used perplexity to write this for me - thanks ai
 
 #!/bin/bash
-cd "$(dirname "$0")"
-rm -f model/*.class simulation/*.class
-javac -d . model/*.java simulation/*.java
-java -cp . simulation.Demo
+cd "$(dirname "$0")/src"  # Go to src/ directory
+rm -f model/*.class simulation/*.class truck/*.class #Remove all of the class files
+javac -d ../build model/*.java simulation/*.java truck/*.java
+cd ../build
+java simulation.Demo
