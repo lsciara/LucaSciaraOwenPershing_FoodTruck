@@ -1,3 +1,5 @@
+package model;
+
 public class Player { //each player has iness level 
 
     private double hungrinessIndex; // 0.0 to 1.0

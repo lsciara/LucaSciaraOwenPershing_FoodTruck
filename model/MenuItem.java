@@ -7,7 +7,7 @@ public class MenuItem {
     private String name;
     private double price;
     
-    public List<Ingredient> ingredients;
+    public List<Ingredient> ingredients;  
 
     public static void main(String[] args) {}
 
@@ -16,5 +16,4 @@ public class MenuItem {
         this.price = price;
         this.ingredients = new ArrayList<>(); 
     }
-
 }
