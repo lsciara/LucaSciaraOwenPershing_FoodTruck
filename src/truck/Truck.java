@@ -2,7 +2,6 @@ package truck;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-
 import model.MenuItem;
 import model.Ingredient;
 
@@ -27,10 +26,12 @@ public class Truck {
         this.isOpen = false;
     }
 
-    public static void cookAndPrepare(double timeToCook) {
-        System.out.println("Cooking");
-        System.out.println("This will take " + timeToCook);
-
+    public static void cookAndPrepare(ArrayList<Ingredient> initialIngredients) {
+        Integer totalCookingTime = 0;
+        
+        for (Ingredient i : initialIngredients) {
+            totalCookingTime += i.cookTime;
+        }
     }
 
     public void addIngredient(Ingredient ingredient, Integer amount) {

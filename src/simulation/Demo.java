@@ -3,7 +3,6 @@ package simulation;
 import truck.Truck;
 import model.MenuItem;
 
-import java.util.Map;
 
 import model.Ingredient;
 
@@ -27,12 +26,14 @@ public class Demo {
         owensTruck.addIngredient(Pancakes, 15);
         owensTruck.addIngredient(OrangeJuice, 12);
 
-        for (Map.Entry<Ingredient, Integer> entry : owensTruck.inventory.entrySet()) {
-            System.out.println(entry.getKey().name + ": " + entry.getValue());
-        }
-
         MenuItem EggsBaconAndToast = new MenuItem("Full Breakfast", 12.00, Eggs, Bacon, Toast);
 
-        
+
+        owensTruck.cookAndPrepare(EggsBaconAndToast.ingredients);
+
+
+
+
+                
     }
 }
