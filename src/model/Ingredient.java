@@ -2,12 +2,35 @@ package model;
 
 
 public class Ingredient {
-    public String name;
-    public boolean isVegan;
-    public long calories = 0;
-    public int cookTime = 0;  // minutes
-    public int cookTemp = 0;    // Fahrenheit
-    public String cookType;
+    private String name;
+    private boolean isVegan;
+    private long calories = 0;
+    private int cookTime = 0;  // minutes
+    private int cookTemp = 0;    // Fahrenheit
+    private String cookType; //Can be BOIL, FRY, BAKE, TOAST
+
+
+    public static void main(String[] args) {}
+
+    public String getName() {
+        return name;
+    }
+    public boolean getIsVegan() {
+        return isVegan;
+    }
+    public long getCalories() {
+        return calories;
+    }
+    public int getCookTime() {
+        return cookTime;
+    }
+    public int getCookTemp() {
+        return cookTemp;
+    }
+    public String getCookType() {
+        return cookType;
+    }
+
 
     public Ingredient(String name, boolean isVegan) {
         this.name = name;
@@ -28,4 +51,6 @@ public class Ingredient {
         this.cookTemp = cookTemp;
         this.cookType = cookType;
     }
+
+
 }

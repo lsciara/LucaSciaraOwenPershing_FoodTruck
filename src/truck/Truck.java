@@ -6,12 +6,12 @@ import model.MenuItem;
 import model.Ingredient;
 
 public class Truck {
-    public String name;                     
-    public double cash;                    
-    public ArrayList<MenuItem> menu;             
-    public HashMap<Ingredient, Integer> inventory;  //temp dictionary
+    private String name;                     
+    private double cash;                    
+    private ArrayList<MenuItem> menu;             
+    private HashMap<Ingredient, Integer> inventory;  //temp dictionary
     
-    public boolean isOpen;                   
+    private boolean isOpen;                   
     // public int reputation;                   
     // public String location;                  
 
@@ -26,15 +26,20 @@ public class Truck {
         this.isOpen = false;
     }
 
-    public static void cookAndPrepare(ArrayList<Ingredient> initialIngredients) {
-        Integer totalCookingTime = 0;
-        
-        for (Ingredient i : initialIngredients) {
-            totalCookingTime += i.cookTime;
-        }
-    }
-
     public void addIngredient(Ingredient ingredient, Integer amount) {
         this.inventory.put(ingredient, amount);
+    }
+
+    public void cookAndPrepare(ArrayList<Ingredient> initialIngredients) {
+        Integer fryCookTime = 0;
+        Integer boilCookTime = 0;
+        Integer toastCookTime = 0;
+
+        for (Ingredient i : initialIngredients) {
+            System.out.println(i.getName());
+            if (i.getCookType().equals("FRY")) {
+                System.out.println('X');
+            }
+        }
     }
 }

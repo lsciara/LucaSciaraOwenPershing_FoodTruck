@@ -4,13 +4,19 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MenuItem {
-    public String name;
-    public double price;
-    public double timeToCook; //In mins and seconds
+    private String name;
+    private double price;
+    private double timeToCook; //In mins and seconds
 
-    public ArrayList<Ingredient> ingredients;  
+    private ArrayList<Ingredient> ingredients;  
 
     public static void main(String[] args) {}
+
+
+    public ArrayList<Ingredient> getIngredients() {
+        return ingredients;
+    }
+
 
     public MenuItem(String name, double price) {
         this.name = name;
@@ -21,7 +27,7 @@ public class MenuItem {
     public MenuItem(String name, double price, Ingredient... initialIngredients) { //The three dots is the "java varargs" 
         this.name = name;
         this.price = price;
-        this.ingredients = new ArrayList<>(Arrays.asList(initialIngredients)); 
+        this.ingredients = new ArrayList<>(Arrays.asList(initialIngredients)); //Make em a list 
     }
 
     public void addIngredient(Ingredient ingredient) {
