@@ -1,4 +1,8 @@
 # LucaSciaraOwenPershing_FoodTruck
+src/ - Source code
+build/ - class files after compiled 
+
+
 Luca and Owen FoodTruck APCS Assignment
 
 
