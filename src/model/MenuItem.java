@@ -6,7 +6,7 @@ import java.util.Arrays;
 public class MenuItem {
     private String name;
     private double price;
-    private double timeToCook; //In mins and seconds
+    // private double timeToCook; //In mins and seconds
 
     private ArrayList<Ingredient> ingredients;  
 
@@ -34,7 +34,6 @@ public class MenuItem {
         this.ingredients.add(ingredient);
     }
 
-    // @Override //This is from AI - It may work
     // public String toString() {
     //     return name; 
     // }
