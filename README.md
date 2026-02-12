@@ -1,4 +1,8 @@
 # LucaSciaraOwenPershing_FoodTruck
+Dependencies:
+    windows-curses
+
+
 src/ - Source code
 build/ - class files after compiled 
 
