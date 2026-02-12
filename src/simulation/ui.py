@@ -4,6 +4,5 @@ root = tk.Tk()
 root.title("My App")
 root.geometry("400x300")
 
-# widgets go here
 
 root.mainloop()
