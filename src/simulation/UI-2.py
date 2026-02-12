@@ -1,6 +1,8 @@
 import tkinter as tk
 
 root = tk.Tk()
+
+root.title("Food-Truck")
 root.geometry("460x300")  # width x height 
 
 root.columnconfigure(0, weight=1)
