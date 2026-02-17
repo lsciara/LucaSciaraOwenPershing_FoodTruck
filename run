@@ -3,6 +3,6 @@
 #!/bin/bash
 cd "$(dirname "$0")/src"  # Go to src/ directory
 rm -f model/*.class simulation/*.class truck/*.class #Remove all of the class files
-javac -d ../build model/*.java simulation/*.java truck/*.java
+javac -d ../build model/*.java simulation/*.java
 cd ../build
 java simulation.Demo
