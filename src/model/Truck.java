@@ -66,38 +66,6 @@ public class Truck {
         return width;
     }
 
-
-    public void cookAndPrepare(ArrayList<Ingredient> initialIngredients) {
-        Integer fryCookTime = 0;
-        Integer toastCookTime = 0;
-        Integer bakeCookTime = 0;
-        Integer boilCookTime = 0;
-
-        for (Ingredient i : initialIngredients) {
-            if (i.getCookType().equals("FRY")) { //if this is fried
-                if (i.getCookTime() > fryCookTime) { //
-                    fryCookTime = i.getCookTime();
-                }
-            }
-            if (i.getCookType().equals("TOAST")) {
-                if (i.getCookTime() > toastCookTime) { 
-                    toastCookTime = i.getCookTime();
-                }
-            }
-            if (i.getCookType().equals("BAKE")) {
-                if (i.getCookTime() > bakeCookTime) { 
-                    bakeCookTime = i.getCookTime();
-                }
-            }
-            if (i.getCookType().equals("BOIL")) {
-                if (i.getCookTime() > boilCookTime) { 
-                    boilCookTime = i.getCookTime();
-                }
-            }
-        }
-        System.out.println("Fry cook time: " + fryCookTime + " minutes");
-        System.out.println("Toast cook time: " + toastCookTime + " minutes");
-        System.out.println("Bake cook time: " + bakeCookTime + " minutes");
-        System.out.println("Boil cook time: " + boilCookTime + " minutes");
-    }
+    //void because i dont know what i wanna return yet
+    public void 
 }

@@ -1,6 +1,5 @@
 package model;
 
-
 public class Ingredient {
     private String name;
     private boolean isVegan;
@@ -31,7 +30,6 @@ public class Ingredient {
         return cookType;
     }
 
-
     public Ingredient(String name, boolean isVegan) {
         this.name = name;
         this.isVegan = isVegan;
@@ -51,6 +49,4 @@ public class Ingredient {
         this.cookTemp = cookTemp;
         this.cookType = cookType;
     }
-
-
 }
