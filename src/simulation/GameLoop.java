@@ -15,24 +15,26 @@ import java.util.Scanner;
 
 public class GameLoop {
     
-    // private String currentPlayer //The file name 
+    private String currentPlayer; //The file name 
     // private Truck truck;
     // private ArrayList<Player> customersInLine;
-    // private double currentTime;   // in minutes
-    // private double tickRate;      // how many minutes pass per tick
-    // private boolean running;
+    private double currentTime;   // in minutes
+    private double tickRate;      // how many minutes pass per tick
+    private boolean running;
 
-    // public GameLoop(Truck truck, double tickRate) {
-    //     this.truck = truck;
-    //     this.customersInLine = new ArrayList<>();
-    //     this.currentTime = 0;
-    //     this.tickRate = tickRate;
-    //     this.running = false;
-    // }
+     public GameLoop() {
+         //this.truck = truck;
+         //this.customersInLine = new ArrayList<>();
+         this.currentTime = 0;
+         this.tickRate = 10;
+         this.running = false;
+    }
 
 
-    // public void start() {
-    //     this.running = true;
+     public void start() {
+        this.running = true;
+        createSaveFile(); //Makes a new CSV to save the start info of this session
+    }
 
 
 
@@ -47,79 +49,67 @@ public class GameLoop {
 
 
     // src/data/saves/game_save.csv
-    public String createSave() {
+    public void createSaveFile() {
         Scanner scan = new Scanner(System.in);
         File savesFolder = new File("../../src/data/saves/");
 
         System.out.println("Welcome to the Food Truck sim");
-        System.out.println("Enter your username (caps do not matter). If your username is already taken you can choose to override");
+        System.out.println("Enter your username (caps matter). If your username is already taken you can choose to override");
 
         String username = scan.nextLine().strip();
 
+        //Make sure the username is NOT _base
         while (username.equalsIgnoreCase("_base")) {
             System.out.println("Error: '_base' is a reserved system name. GET A NEW NAME.");
             username = scan.nextLine().strip();
         }
 
+        //add file type
         username = username + ".csv";
 
+        //List of all the files
         File[] allFiles = savesFolder.listFiles();
 
-        if (savesFolder.exists()) {
+        if (savesFolder.exists()) { //check it exsists
             for (File f : allFiles) {        
-                while (username.equals(f.getName())) {
+                while (username.equals(f.getName())) { //If the chosen username already has a folder
                     System.out.println("This username already exsists! Would you like to override that save? (Y/N)");
 
                     String overrideChoice = scan.nextLine().trim();
 
+                    //Just set currentPlayer to the one you chose
                     if (overrideChoice.equalsIgnoreCase("y")) {
                         System.out.println("Override");
-                        // this.currentPlayer = username;
+                        this.currentPlayer = username;
                         break;
                     }
-                    else {
+                    else { //Pick a new username, make a new folder and copy everything from _base
                         System.out.println("Enter your username (caps do not matter). If your username is already taken you can choose to override");
 
                         username = scan.nextLine().strip();
 
                         username = username + ".csv";
+
+                        String finalPath = "../../src/data/saves/" + username;
+
+                        Path source = Paths.get("../../src/data/saves/_base.csv");
+                        Path destination = Paths.get(finalPath);
+
+                        try {
+                            Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
+                        }
+                        catch (IOException e) {
+                            System.out.println(e);
+                        }
+                        this.currentPlayer = username;
                     }
                 }
             }
-            String finalPath = "../../src/data/saves/" + username;
-
-            System.out.println(finalPath);
-
-            Path source = Paths.get("../../src/data/saves/_base.csv");
-        Path destination = Paths.get(finalPath);
         }
-
-        return "temp";
     }
-
-
-    //         String finalPath = "../../src/data/saves/" + username; 
-
-    //         try {
-
-    //             Path source = Paths.get("../../src/data/saves/_base.csv");
-    //             Path destination = Paths.get(finalPath);
-
-
-    //             Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
-                
-    //             System.out.println("Success! Save created at: " + finalPath);
-    //         } catch (IOException e) {
-    //             System.out.println("Error: Could not copy base file. Check if _base.csv exists.");
-    //             e.printStackTrace();
-    //         }
-
-
-    //     return "t";
-    // }
 
     public static void main(String[] args) {
         GameLoop instance = new GameLoop();
-        instance.createSave();
+        instance.createSaveFile();
     }
 }
