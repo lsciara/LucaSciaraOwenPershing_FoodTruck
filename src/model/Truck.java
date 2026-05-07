@@ -65,7 +65,5 @@ public class Truck {
     public int getWidth() {
         return width;
     }
-
-    //void because i dont know what i wanna return yet
-    public void 
 }
+

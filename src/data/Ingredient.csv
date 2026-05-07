@@ -1,0 +1,19 @@
+name,isVegan,calories,cookTime,cookTemp,cookType
+Bacon,false,150,10,350,FRY
+Eggs,false,80,5,200,FRY
+Bread,true,70,3,375,TOAST
+Beef Patty,false,290,8,400,FRY
+Cheese,false,110,1,0,NONE
+Lettuce,true,5,0,0,NONE
+Tomato,true,25,0,0,NONE
+Onion,true,45,0,0,NONE
+Pickles,true,10,0,0,NONE
+Chicken Breast,false,165,12,375,BAKE
+Black Beans,true,110,20,212,BOIL
+Rice,true,200,18,212,BOIL
+Hot Dog,false,180,6,350,FRY
+Hot Dog Bun,true,120,2,350,TOAST
+Potato,true,160,15,400,BAKE
+Ketchup,true,20,0,0,NONE
+Mustard,true,10,0,0,NONE
+Mayo,false,90,0,0,NONE

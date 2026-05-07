@@ -50,3 +50,4 @@ public class Ingredient {
         this.cookType = cookType;
     }
 }
+
