@@ -52,6 +52,8 @@ public class GameLoop {
     public void createSaveFile() {
         Scanner scan = new Scanner(System.in);
         File savesFolder = new File("../../src/data/saves/");
+        
+
 
         System.out.println("Welcome to the Food Truck sim");
         System.out.println("Enter your username (caps matter). If your username is already taken you can choose to override");
@@ -64,12 +66,15 @@ public class GameLoop {
             username = scan.nextLine().strip();
         }
 
-        //add file type
-        username = username + ".csv";
+        File userFile = new userFile(savesFolder, username + ".csv");
 
         //List of all the files
-        File[] allFiles = savesFolder.listFiles();
+        if (userFile.exsists()) {
+            System.out.println("exsists");
+        }
 
+
+//CHANGING CODE AFTER THIS
         if (savesFolder.exists()) { //check it exsists
             for (File f : allFiles) {        
                 while (username.equals(f.getName())) { //If the chosen username already has a folder
@@ -95,12 +100,16 @@ public class GameLoop {
                         Path source = Paths.get("../../src/data/saves/_base.csv");
                         Path destination = Paths.get(finalPath);
 
+                        System.out.println("Create file at " + source);
+
                         try {
+                            Files.createFile(source);
                             Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
                         }
                         catch (IOException e) {
-                            System.out.println(e);
+                            System.out.println("Error: System IOException");
                         }
+
                         this.currentPlayer = username;
                     }
                 }
