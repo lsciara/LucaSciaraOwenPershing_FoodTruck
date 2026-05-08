@@ -7,17 +7,22 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.nio.file.*;
+import java.util.*;
+
 
 // import model.Player;
 // import model.Truck;
 
 public class GameLoop {
     
-    private String currentPlayer; //The file name 
+    private String currentPlayer; //The file name WITHOUT .csv
+    private String savesFilePath = "../../src/data/saves/";
+    private String filePath;
+
     // private Truck truck;
     // private ArrayList<Player> customersInLine;
+    private double startingCash;
     private double currentTime;   // in minutes
     private double tickRate;      // how many minutes pass per tick
     private boolean running;
@@ -33,7 +38,12 @@ public class GameLoop {
 
      public void start() {
         this.running = true;
-        createSaveFile(); //Makes a new CSV to save the start info of this session
+        try {
+            validateName(); //Makes a new CSV to save the start info of this session
+        }
+        catch (IOException e) {
+
+        }
     }
 
 
@@ -49,12 +59,14 @@ public class GameLoop {
 
 
     // src/data/saves/game_save.csv
-    public void createSaveFile() {
+
+    // ../../src/data/saves/
+
+    /**This method will take user input, make sure name is valid then call createFileFromName()  */
+    public void validateName() throws IOException{
         Scanner scan = new Scanner(System.in);
-        File savesFolder = new File("../../src/data/saves/");
+        File savesFolder = new File(savesFilePath);
         
-
-
         System.out.println("Welcome to the Food Truck sim");
         System.out.println("Enter your username (caps matter). If your username is already taken you can choose to override");
 
@@ -66,59 +78,130 @@ public class GameLoop {
             username = scan.nextLine().strip();
         }
 
-        File userFile = new userFile(savesFolder, username + ".csv");
+        File userFile = new File(savesFolder, username + ".csv");
 
-        //List of all the files
-        if (userFile.exsists()) {
-            System.out.println("exsists");
-        }
+        if (userFile.exists()) {
+            System.out.println("Would you like to overwrite " + username + "? (Y/N)");
+            String r = scan.nextLine().trim();
+            while (!r.equalsIgnoreCase("y") && !r.equalsIgnoreCase("n")) {
+                System.out.println("Please enter Y or N:");
+                r = scan.nextLine().trim();
+            }
 
+            if (r.equalsIgnoreCase("y")) {
+                this.currentPlayer = username;
+                this.filePath = savesFilePath + username + ".csv";
+            }
+            if (r.equalsIgnoreCase("n")) {
+                boolean found = false;
+                while (!found) {
+                    System.out.println("Enter your username (caps matter). If your username is already taken you can choose to override");
+                    String username_ = scan.nextLine().strip();
 
-//CHANGING CODE AFTER THIS
-        if (savesFolder.exists()) { //check it exsists
-            for (File f : allFiles) {        
-                while (username.equals(f.getName())) { //If the chosen username already has a folder
-                    System.out.println("This username already exsists! Would you like to override that save? (Y/N)");
-
-                    String overrideChoice = scan.nextLine().trim();
-
-                    //Just set currentPlayer to the one you chose
-                    if (overrideChoice.equalsIgnoreCase("y")) {
-                        System.out.println("Override");
-                        this.currentPlayer = username;
-                        break;
-                    }
-                    else { //Pick a new username, make a new folder and copy everything from _base
-                        System.out.println("Enter your username (caps do not matter). If your username is already taken you can choose to override");
-
-                        username = scan.nextLine().strip();
-
-                        username = username + ".csv";
-
-                        String finalPath = "../../src/data/saves/" + username;
-
-                        Path source = Paths.get("../../src/data/saves/_base.csv");
-                        Path destination = Paths.get(finalPath);
-
-                        System.out.println("Create file at " + source);
-
-                        try {
-                            Files.createFile(source);
-                            Files.copy(source, destination, StandardCopyOption.REPLACE_EXISTING);
-                        }
-                        catch (IOException e) {
-                            System.out.println("Error: System IOException");
-                        }
-
-                        this.currentPlayer = username;
+                    if (!username.equalsIgnoreCase("_base")) {
+                        this.currentPlayer = username_;
+                        this.filePath = savesFilePath + username + ".csv";
+                        createFileFromName();
+                        found = true;
                     }
                 }
             }
         }
+        else { //File does not exsist yet
+            this.currentPlayer = username;
+            this.filePath = savesFilePath + username + ".csv";
+            createFileFromName();
+        }
     }
+
+    //create new user file from just the name
+    public void createFileFromName() throws IOException {
+        String fullFilePath = "../../src/data/saves/" + currentPlayer + ".csv";
+        Path src = Paths.get("../../src/data/saves/_base.csv");
+
+        Path filePath = Paths.get(fullFilePath);
+
+        Files.createFile(filePath);
+
+        Files.copy(src, filePath, StandardCopyOption.REPLACE_EXISTING);
+
+        //Add name and starting cash
+        List<List<String>> rows = csvToList();
+
+        List<String> nameInfo = new ArrayList<>();
+        nameInfo.add(currentPlayer);
+        nameInfo.add(String.valueOf(startingCash));
+
+        rows.set(1, nameInfo);
+
+        listToCSV(rows);
+
+        createAndPopulateTruck();
+    }
+
+    public void createAndPopulateTruck() {
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Enter a name for your food truck: ");
+        String truckName = scan.nextLine().trim();
+
+        System.out.println("Build your menu! First you have to pick ingredients? Enter R if you want some random ingredients or P if you want to pick them!");
+        String ingredientChoice = scan.nextLine().trim();
+
+        boolean valid = false;
+
+        while (!valid) {
+            System.out.println("Build your menu! First you have to pick ingredients? Enter R if you want some random ingredients or P if you want to pick them!");
+            ingredientChoice = scan.nextLine().trim();
+        }
+        if (ingredientChoice.equalsIgnoreCase("r") || ingredientChoice.equalsIgnoreCase("p")) {
+            valid = true;
+            if (ingredientChoice.equalsIgnoreCase("r")) {
+                //add stuff to randomly give x amount of ingredients to a player
+            }
+            else {
+                //print out all ingredients and let em choose which ones they want
+            }
+        }
+
+        //Build menuItems!
+
+        
+    }
+
+
+//HELPFUL METHODS 
+    public List<List<String>> csvToList() throws IOException{
+        Path filePath = Paths.get(savesFilePath + currentPlayer + ".csv");
+        List<String> lines = Files.readAllLines(filePath);
+
+        List<List<String>> rows = new ArrayList<>();
+        for (String line : lines) {
+            rows.add(Arrays.asList(line.split(",")));
+        }
+
+        return rows;
+    }
+
+    public void listToCSV(List<List<String>> rows) throws IOException{
+        Path filePath = Paths.get(savesFilePath + currentPlayer + ".csv");
+
+        List<String> newLines = new ArrayList<>();
+        newLines.add(String.join(",", rows.get(0)));  // Keep header
+        for (int i = 1; i < rows.size(); i++) {
+            newLines.add(String.join(",", rows.get(i)));
+        }
+
+        Files.write(filePath, newLines);
+    }
+
+
+        
+    
+    
 
     public static void main(String[] args) {
         GameLoop instance = new GameLoop();
-        instance.createSaveFile();
+        instance.start();
     }
 }
