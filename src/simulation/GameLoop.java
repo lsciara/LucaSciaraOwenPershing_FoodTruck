@@ -11,6 +11,7 @@ import java.nio.file.*;
 import java.util.*;
 
 
+
 // import model.Player;
 // import model.Truck;
 
@@ -27,18 +28,21 @@ public class GameLoop {
     private double tickRate;      // how many minutes pass per tick
     private boolean running;
 
-     public GameLoop() {
-         //this.truck = truck;
-         //this.customersInLine = new ArrayList<>();
-         this.currentTime = 0;
-         this.tickRate = 10;
-         this.running = false;
-    }
+    private int amountOfIngredients;
+    
+    // public GameLoop() {
+    //     //this.truck = truck;
+    //     //this.customersInLine = new ArrayList<>();
+    //     this.currentTime = 0;
+    //     this.tickRate = 10;
+    //     this.running = false;
+    // }
 
 
      public void start() {
         this.running = true;
         try {
+            loadIngredientData();
             validateName(); //Makes a new CSV to save the start info of this session
         }
         catch (IOException e) {
@@ -57,6 +61,19 @@ public class GameLoop {
 
     }
 
+
+
+
+    public void loadIngredientData() throws IOException {
+        System.out.println("currentPlayer: '" + currentPlayer + "'");
+        if (currentPlayer == null || currentPlayer.trim().isEmpty()) {
+            System.out.println("ERROR: currentPlayer is null/empty!");
+            return;
+        }
+        
+        ArrayList<ArrayList<String>> ingredientList = csvToList();
+        // ... rest
+    }
 
     // src/data/saves/game_save.csv
 
@@ -92,19 +109,33 @@ public class GameLoop {
                 this.currentPlayer = username;
                 this.filePath = savesFilePath + username + ".csv";
             }
-            if (r.equalsIgnoreCase("n")) {
-                boolean found = false;
-                while (!found) {
-                    System.out.println("Enter your username (caps matter). If your username is already taken you can choose to override");
-                    String username_ = scan.nextLine().strip();
 
-                    if (!username.equalsIgnoreCase("_base")) {
-                        this.currentPlayer = username_;
-                        this.filePath = savesFilePath + username + ".csv";
-                        createFileFromName();
-                        found = true;
-                    }
-                }
+            //I think the bug is here and I need to fix it. Happens if i pick a name, says it exsists and i dont wanna dupe it sets the class level var to the original name that already exsits and now the new one
+            if (r.equalsIgnoreCase("n")) {
+                //new code here:
+
+
+
+
+                // boolean found = false;
+                // while (!found) {
+                //     System.out.println("Enter your username (caps matter). If your username is already taken you can choose to override");
+                //     String username_ = scan.nextLine().strip();
+
+                //     if (!username_.equalsIgnoreCase("_base")) {
+                //         File newUserFile = new File(savesFolder, username_ + ".csv"); 
+                //         if (newUserFile.exists()) {
+                //             System.out.println("That username is also taken! Choose a different one.");
+                //         } else {
+                //             this.currentPlayer = username_;
+                //             this.filePath = savesFilePath + username_ + ".csv";
+                //             createFileFromName();
+                //             found = true;
+                //         }
+                //     } else {
+                //         System.out.println("Error: '_base' is a reserved system name. GET A NEW NAME.");
+                //     }
+                // }
             }
         }
         else { //File does not exsist yet
@@ -112,6 +143,9 @@ public class GameLoop {
             this.filePath = savesFilePath + username + ".csv";
             createFileFromName();
         }
+
+
+        System.out.println("Current player: " + currentPlayer + " and username " + username);
     }
 
     //create new user file from just the name
@@ -125,18 +159,20 @@ public class GameLoop {
 
         Files.copy(src, filePath, StandardCopyOption.REPLACE_EXISTING);
 
-        //Add name and starting cash
-        List<List<String>> rows = csvToList();
+        ArrayList<ArrayList<String>> rows = csvToList();
 
-        List<String> nameInfo = new ArrayList<>();
+        ArrayList<String> nameInfo = new ArrayList<>();
         nameInfo.add(currentPlayer);
         nameInfo.add(String.valueOf(startingCash));
 
-        rows.set(1, nameInfo);
+        if (rows.size() > 1) {
+            rows.set(1, nameInfo);
+        } else {
+            rows.add(nameInfo);  
+        }
 
         listToCSV(rows);
-
-        createAndPopulateTruck();
+        // createAndPopulateTruck();
     }
 
     public void createAndPopulateTruck() {
@@ -171,19 +207,20 @@ public class GameLoop {
 
 
 //HELPFUL METHODS 
-    public List<List<String>> csvToList() throws IOException{
+    public ArrayList<ArrayList<String>> csvToList() throws IOException {
         Path filePath = Paths.get(savesFilePath + currentPlayer + ".csv");
         List<String> lines = Files.readAllLines(filePath);
 
-        List<List<String>> rows = new ArrayList<>();
+        ArrayList<ArrayList<String>> rows = new ArrayList<>();
         for (String line : lines) {
-            rows.add(Arrays.asList(line.split(",")));
+            ArrayList<String> row = new ArrayList<>(Arrays.asList(line.split(",")));
+            rows.add(row);
         }
 
         return rows;
     }
 
-    public void listToCSV(List<List<String>> rows) throws IOException{
+    public void listToCSV(ArrayList<ArrayList<String>> rows) throws IOException{
         Path filePath = Paths.get(savesFilePath + currentPlayer + ".csv");
 
         List<String> newLines = new ArrayList<>();
@@ -200,8 +237,8 @@ public class GameLoop {
     
     
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         GameLoop instance = new GameLoop();
-        instance.start();
+        instance.validateName();
     }
 }
