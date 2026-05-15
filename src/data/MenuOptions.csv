@@ -1,0 +1,101 @@
+itemID,name,price,category,description,isAvailable
+B01,Classic Buttermilk Pancakes,8.50,Breakfast,Three fluffy pancakes served with maple syrup and butter,TRUE
+B02,Avocado Toast,11.00,Breakfast,Sourdough topped with smashed avocado and a poached egg,TRUE
+B03,Breakfast Burrito,9.50,Breakfast,Scrambled eggs with sausage and peppers in a flour tortilla,TRUE
+B04,Brioche French Toast,10.00,Breakfast,Thick slices of brioche with cinnamon and fresh berries,TRUE
+B05,Greek Yogurt Parfait,7.50,Breakfast,Honey yogurt layered with granola and seasonal fruit,TRUE
+B06,Classic Eggs Benedict,13.50,Breakfast,Poached eggs and Canadian bacon on English muffins,TRUE
+B07,Steel Cut Oatmeal,6.50,Breakfast,Warm oats topped with brown sugar and toasted walnuts,TRUE
+B08,Smoked Salmon Bagel,12.00,Breakfast,Everything bagel with cream cheese and capers,TRUE
+B09,Garden Veggie Omelet,10.50,Breakfast,Three eggs with spinach mushrooms and bell peppers,TRUE
+B10,Belgian Waffle,9.00,Breakfast,Deep-pocketed waffle with whipped cream and strawberries,TRUE
+B11,Steak and Eggs,16.00,Breakfast,6oz sirloin served with two eggs any style,TRUE
+B12,Chorizo Scramble,11.00,Breakfast,Spicy chorizo mixed with eggs and topped with salsa,TRUE
+B13,Breakfast Quesadilla,9.00,Breakfast,Melted cheese and scrambled eggs in a toasted tortilla,TRUE
+B14,Western Omelet,11.50,Breakfast,Ham onions and peppers with melted cheddar cheese,TRUE
+B15,Fruit & Nut Muesli,8.00,Breakfast,Chilled oats with dried fruit and almond slivers,TRUE
+B16,Corned Beef Hash,12.50,Breakfast,Crispy potatoes with seasoned beef and two poached eggs,TRUE
+B17,Shakshuka,13.00,Breakfast,Poached eggs in a spicy tomato and pepper sauce,TRUE
+B18,Turkey Sausage Skillet,11.00,Breakfast,Potatoes and turkey sausage topped with melted jack,TRUE
+B19,Everything Bagel Sandwich,8.50,Breakfast,Fried egg bacon and cheddar on a toasted bagel,TRUE
+B20,Blueberry Muffin,3.50,Breakfast,Freshly baked muffin bursting with local blueberries,TRUE
+L01,Grilled Chicken Wrap,12.00,Lunch,Grilled chicken with ranch and crisp romaine lettuce,TRUE
+L02,Classic Caesar Salad,10.50,Lunch,Romaine lettuce with parmesan and house-made croutons,TRUE
+L03,Margherita Pizza,14.00,Lunch,Hand-tossed dough with fresh tomato sauce and mozzarella,TRUE
+L04,Turkey Club Sandwich,11.50,Lunch,Triple-decker sandwich with roasted turkey and crispy bacon,TRUE
+L05,Roasted Quinoa Bowl,12.50,Lunch,Quinoa topped with roasted veggies and lemon tahini,TRUE
+L06,Beef Slider Trio,13.00,Lunch,Three mini wagyu burgers with caramelized onions,TRUE
+L07,Tomato Basil Soup,6.00,Lunch,Creamy tomato soup served with a grilled cheese wedge,TRUE
+L08,Falafel Pita,11.00,Lunch,Crispy falafel with cucumber salad and garlic sauce,TRUE
+L09,BBLT Sandwich,10.00,Lunch,Double bacon lettuce and tomato on toasted white bread,TRUE
+L10,Asian Crunch Salad,11.50,Lunch,Cabbage and carrots with sesame ginger dressing,TRUE
+L11,Cuban Sandwich,13.00,Lunch,Pulled pork ham and pickles on pressed bread,TRUE
+L12,Fish Tacos,14.50,Lunch,Three cod tacos with slaw and lime crema,TRUE
+L13,Pesto Pasta Salad,9.50,Lunch,Rotini pasta with basil pesto and cherry tomatoes,TRUE
+L14,Buffalo Chicken Salad,12.50,Lunch,Spicy chicken over mixed greens with blue cheese,TRUE
+L15,Steak Chimichurri Wrap,15.00,Lunch,Sliced steak with greens and zesty herb sauce,TRUE
+L16,Caprese Panini,11.00,Lunch,Fresh mozzarella tomato and balsamic glaze,TRUE
+L17,Shrimp Po Boy,15.50,Lunch,Fried shrimp on a hoagie roll with spicy remoulade,TRUE
+L18,Greek Salad,11.00,Lunch,Kalamata olives feta and cucumbers with oregano lemon,TRUE
+L19,BBQ Pulled Pork Sando,12.50,Lunch,Slow-cooked pork on a brioche bun with slaw,TRUE
+L20,Mushroom Swiss Burger,13.50,Lunch,Beef patty topped with sautéed mushrooms and swiss,TRUE
+D01,Ribeye Steak,28.00,Dinner,12oz grilled steak served with garlic mashed potatoes,TRUE
+D02,Pan-Seared Salmon,24.50,Dinner,Fresh Atlantic salmon with roasted asparagus,TRUE
+D03,Pasta Carbonara,18.00,Dinner,Creamy egg sauce with guanciale and aged pecorino,TRUE
+D04,Yellow Vegetable Curry,16.50,Dinner,Spiced coconut milk curry served with jasmine rice,TRUE
+D05,Grilled Lamb Chops,26.00,Dinner,Tender lamb chops finished with a mint chimichurri,TRUE
+D06,Truffle Mushroom Risotto,19.00,Dinner,Slow-cooked arborio rice with wild mushrooms and truffle oil,TRUE
+D07,Roasted Half Chicken,21.00,Dinner,Herb-rubbed chicken served with root vegetables,TRUE
+D08,Lobster Ravioli,27.00,Dinner,Handmade pasta in a rich vodka cream sauce,TRUE
+D09,Beef Wellington,32.00,Dinner,Fillet steak wrapped in puff pastry with duxelles,TRUE
+D10,Eggplant Parmesan,17.50,Dinner,Breaded eggplant layers with marinara and mozzarella,TRUE
+D11,Seafood Paella,29.00,Dinner,Saffron rice with shrimp mussels and calamari,TRUE
+D12,Braised Short Rib,25.00,Dinner,Red wine braised beef over creamy polenta,TRUE
+D13,Chicken Piccata,19.50,Dinner,Pan-fried chicken with lemon caper butter sauce,TRUE
+D14,Duck Confit,28.00,Dinner,Crispy duck leg with braised red cabbage,TRUE
+D15,Prime Rib,30.00,Dinner,Slow-roasted beef served with au jus and horseradish,TRUE
+D16,Vongole Linguine,22.00,Dinner,Linguine with fresh clams in a white wine sauce,TRUE
+D17,Pork Belly Ramen,18.00,Dinner,Rich pork broth with marinated egg and noodles,TRUE
+D18,Vegetable Lasagna,17.00,Dinner,Layers of squash spinach and ricotta cheese,TRUE
+D19,Blackened Mahi Mahi,23.50,Dinner,Spicy mahi mahi served with mango salsa,TRUE
+D20,Filet Mignon,34.00,Dinner,8oz center-cut beef with a red wine reduction,TRUE
+S01,Garlic Butter Knots,5.50,Snack,Warm dough knots tossed in garlic and parsley,TRUE
+S02,Classic Hummus Plate,7.00,Snack,Creamy chickpea hummus served with warm pita bread,TRUE
+S03,Sweet Potato Fries,6.00,Snack,Crispy sweet potato fries with chipotle aioli dip,TRUE
+S04,Steamed Edamame,5.00,Snack,Soybeans in the pod sprinkled with sea salt,TRUE
+S05,Loaded Beef Nachos,9.00,Snack,Corn chips with seasoned beef and melted cheddar,TRUE
+S06,Mozzarella Sticks,6.50,Snack,Golden fried cheese served with zesty marinara,TRUE
+S07,Chicken Wings,11.00,Snack,Eight wings tossed in your choice of buffalo or BBQ,TRUE
+S08,Pretzel Bites,7.50,Snack,Soft pretzel pieces served with warm beer cheese,TRUE
+S09,Onion Rings,6.50,Snack,Thick-cut battered rings with spicy dipping sauce,TRUE
+S10,Spinach Artichoke Dip,9.50,Snack,Creamy dip served with toasted baguette slices,TRUE
+S11,Fried Calamari,12.00,Snack,Crispy squid rings with lemon and marinara,TRUE
+S12,Popcorn Shrimp,10.00,Snack,Bite-sized fried shrimp with cocktail sauce,TRUE
+S13,Potato Skins,8.50,Snack,Cheese and bacon filled skins with sour cream,TRUE
+S14,Mac and Cheese Bites,7.50,Snack,Deep-fried macaroni and cheese nuggets,TRUE
+S15,Bruschetta,8.00,Snack,Toasted bread with tomato basil and garlic,TRUE
+S16,Deviled Eggs,6.50,Snack,Classic paprika-dusted eggs with a creamy center,TRUE
+S17,Spring Rolls,7.00,Snack,Crispy vegetable rolls with sweet chili sauce,TRUE
+S18,Tater Tot Poutine,9.00,Snack,Crispy tots topped with gravy and cheese curds,TRUE
+S19,Mini Corn Dogs,6.00,Snack,Honey-battered mini franks with mustard,TRUE
+S20,Chips and Salsa,5.00,Snack,House-made corn chips with mild chunky salsa,TRUE
+DS01,NY Style Cheesecake,7.50,Dessert,Rich cheesecake topped with a seasonal berry compote,TRUE
+DS02,Chocolate Lava Cake,8.50,Dessert,Warm dark chocolate center with vanilla bean ice cream,TRUE
+DS03,Old Fashioned Apple Pie,6.50,Dessert,House-baked pie with spiced apples and a flaky crust,TRUE
+DS04,Classic Tiramisu,8.00,Dessert,Espresso-soaked ladyfingers with creamy mascarpone,TRUE
+DS05,Tangy Lemon Tart,7.00,Dessert,Shortbread crust filled with smooth lemon curd,TRUE
+DS06,Fruit Sorbet Flight,6.00,Dessert,Three scoops of seasonal house-made fruit sorbet,TRUE
+DS07,Warm Fudge Brownie,7.50,Dessert,Decadent chocolate brownie with walnuts and cream,TRUE
+DS08,Creme Brulee,9.00,Dessert,Vanilla bean custard with a burnt sugar topping,TRUE
+DS09,Red Velvet Cupcake,4.00,Dessert,Moist cake with a rich cream cheese frosting,TRUE
+DS10,Banana Bread Pudding,8.00,Dessert,Warm pudding with caramelized bananas and rum sauce,TRUE
+DS11,Carrot Cake,7.50,Dessert,Spiced cake with walnuts and ginger frosting,TRUE
+DS12,Key Lime Pie,7.00,Dessert,Tart lime filling with a graham cracker crust,TRUE
+DS13,Peach Cobbler,8.50,Dessert,Warm spiced peaches with a buttery biscuit topping,TRUE
+DS14,Gelato Trio,7.50,Dessert,Choose three flavors of authentic Italian gelato,TRUE
+DS15,Baklava,6.00,Dessert,Layers of filo pastry with honey and pistachios,TRUE
+DS16,Profiteroles,8.00,Dessert,Cream puffs filled with vanilla pastry cream,TRUE
+DS17,Sticky Toffee Pudding,8.50,Dessert,Date cake soaked in warm toffee sauce,TRUE
+DS18,Strawberry Shortcake,7.00,Dessert,Fresh berries and whipped cream on a sweet biscuit,TRUE
+DS19,Chocolate Mousse,6.50,Dessert,Light and airy dark chocolate whipped mousse,TRUE
+DS20,Churros with Chocolate,7.50,Dessert,Cinnamon-sugar fried dough with dipping sauce,TRUE

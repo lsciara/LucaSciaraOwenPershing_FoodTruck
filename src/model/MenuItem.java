@@ -1,41 +1,62 @@
-package model;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-
 public class MenuItem {
+    private String itemID;
     private String name;
-    private double price;
-    // private double timeToCook; //In mins and seconds
+    private int price;
+    private String category;
+    private String description;
+    private boolean isAvailable;
 
-    private ArrayList<Ingredient> ingredients;  
+
+    public MenuItem(String itemID, String name, int price, String category, String description, boolean isAvailable) {
+        this.itemID = itemID;
+        this.name = name;
+        this.price = price;
+        this.category = category;
+        this.description = description;
+        this.isAvailable = isAvailable;
+    }
+
+
+    public String getItemID() {
+        return itemID;
+    }
+    public String getName() {
+        return name;
+    }
+    public int getPrice() {
+        return price;
+    }
+    public String getCategory() {
+        return category;
+    }
+    public String getDescription() {
+        return description;
+    }
+
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+    public void setItemID(String itemID) {
+        this.itemID = itemID;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setPrice(int price) {
+        this.price = price;
+    }
+    public void setCategory(String category) {
+        this.category = category;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public void setAvailable(boolean isAvailable) {
+        this.isAvailable = isAvailable;
+    }
+
 
     public static void main(String[] args) {}
-
-
-    public ArrayList<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
-
-    public MenuItem(String name, double price) {
-        this.name = name;
-        this.price = price;
-        this.ingredients = new ArrayList<>();
-    }
-
-    public MenuItem(String name, double price, Ingredient... initialIngredients) { //The three dots is the "java varargs" 
-        this.name = name;
-        this.price = price;
-        this.ingredients = new ArrayList<>(Arrays.asList(initialIngredients)); //Make em a list 
-    }
-
-    public void addIngredient(Ingredient ingredient) {
-        this.ingredients.add(ingredient);
-    }
-
-    // public String toString() {
-    //     return name; 
-    // }
 }
 
