@@ -141,6 +141,7 @@ public class GameLoop {
         createAndPopulateTruck();
     }
 
+    //gives 5 random menu items from each cat
     public void populateTotalMenuItems() throws IOException {
         ArrayList<ArrayList<String>> menuItems = csvToList(dataFilePath + "MenuOptions");
 
